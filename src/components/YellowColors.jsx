@@ -15,7 +15,7 @@ const QUERY = gql`
 `;
 
 
-const YellowColors = () => {
+const YellowColors = ({setHandleModal, handleModal}) => {
     const { data } = useQuery(QUERY);
 
 
@@ -33,6 +33,8 @@ const YellowColors = () => {
         <div>
             <ColorBox
                 colors={colors}
+                setHandleModal={setHandleModal}
+                handleModal={handleModal}
             />
         </div>
     )

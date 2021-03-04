@@ -50,6 +50,8 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
 
 
+  const [handleModal, setHandleModal] = useState(false);
+
     useEffect(() => {
 
       if(data){
@@ -70,7 +72,9 @@ function App() {
     }
 
     const cleanFilter = () => {
+      setHandleModal(false);
       setSearchValue('');
+      setHandleFilter('');
     }
 
   return (
@@ -82,6 +86,7 @@ function App() {
           setHandleFilter={setHandleFilter}
           handleFilter={handleFilter}
           setSearchValue={setSearchValue}
+          setHandleModal={setHandleModal}
         />
 
         { toggleSidebar ? null : 
@@ -136,8 +141,8 @@ function App() {
 
         
           
-          <div  className="container">
-            { searchValue !== '' ? <FilteredColors searchValue={searchValue}/>  :
+          <div  className={toggleSidebar ? 'container-full' : 'container'} >
+            { searchValue !== '' ? <FilteredColors handleModal={handleModal} setHandleModal={setHandleModal} searchValue={searchValue}/>  :
             
             
               <Switch>
@@ -146,43 +151,71 @@ function App() {
                     colors={colors}
                     setRandomColor={setRandomColor}
                     randomColor={randomColor}
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
                   />
                 </Route>
 
                 <Route exact path="/">
                   <Colors
                     colors={colors}
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
                   />
                 </Route>
                 <Route path="/red">
-                  <RedColors />
+                  <RedColors
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
+                  />
                 </Route>
                 <Route path="/orange">
-                  <OrangeColors />
+                  <OrangeColors
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
+                  />
                 </Route>
 
                 <Route path="/yellow">
-                  <YellowColors />
+                  <YellowColors 
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
+                  />
                 </Route>
 
                 <Route path="/green">
-                  <GreenColors />
+                  <GreenColors 
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
+                  />
                 </Route>
 
                 <Route path="/blue">
-                  <BlueColors />
+                  <BlueColors 
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
+                  />
                 </Route>
 
                 <Route path="/purple">
-                  <PurpleColors />
+                  <PurpleColors 
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
+                  />
                 </Route>
 
                 <Route path="/brown">
-                  <BrownColors />
+                  <BrownColors 
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
+                  />
                 </Route>
 
                 <Route path="/gray">
-                  <GrayColors />
+                  <GrayColors 
+                    setHandleModal={setHandleModal}
+                    handleModal={handleModal}
+                  />
                 </Route>
                 
               </Switch>

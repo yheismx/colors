@@ -1,7 +1,7 @@
 import React from 'react'
 import ColorBox from './ColorBox';
 
-const RandomColors = ({randomColor}) => {
+const RandomColors = ({randomColor, setHandleModal, handleModal}) => {
 
     
     
@@ -13,6 +13,8 @@ const RandomColors = ({randomColor}) => {
         <div>       
             <ColorBox
                 colors={randomColor}
+                setHandleModal={setHandleModal}
+                handleModal={handleModal}
             />
         </div>
     )

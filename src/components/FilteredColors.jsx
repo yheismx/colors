@@ -13,7 +13,7 @@ const QUERY = gql`
 `;
 
 
-const FilteredColors = ({searchValue}) => {
+const FilteredColors = ({searchValue, handleModal, setHandleModal}) => {
     const { data } = useQuery(QUERY, {
         variables: { 
             input:{
@@ -38,6 +38,8 @@ const FilteredColors = ({searchValue}) => {
         <div>
             <ColorBox
                 colors={colors}
+                setHandleModal={setHandleModal}
+                handleModal={handleModal}
             />
         </div>
     )

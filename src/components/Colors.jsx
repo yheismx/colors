@@ -1,7 +1,7 @@
 import React from 'react'
 import ColorBox from './ColorBox';
 
-const Colors = ({colors}) => {
+const Colors = ({colors, setHandleModal, handleModal}) => {
     console.log(colors);
 
     return (
@@ -9,6 +9,8 @@ const Colors = ({colors}) => {
 
             <ColorBox
                 colors={colors}
+                setHandleModal={setHandleModal}
+                handleModal={handleModal}
             />
         </div>
     )

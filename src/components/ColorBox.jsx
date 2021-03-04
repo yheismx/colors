@@ -3,7 +3,7 @@ import ReactPaginate from "react-paginate";
 import InfoBox from "./InfoBox";
 
 
-const ColorBox = ({colors}) => {
+const ColorBox = ({colors, setHandleModal, handleModal}) => {
 
     const [colorInfo, setColorInfo] = useState({
         name : '',
@@ -11,7 +11,7 @@ const ColorBox = ({colors}) => {
         hex: ''
     })
 
-    const [handleModal, setHandleModal] = useState(false);
+    
 
     const getName = (name, rgb, hex) => {
         setHandleModal(true);
@@ -63,8 +63,8 @@ const ColorBox = ({colors}) => {
                 
                 colors.length > 1 ? 
                 <ReactPaginate
-                previousLabel={"Previous"}
-                nextLabel={"Next"}
+                previousLabel={"<"}
+                nextLabel={">"}
                 pageCount={pageCount}
                 onPageChange={changePage}
                 containerClassName={"paginationButtons"}
